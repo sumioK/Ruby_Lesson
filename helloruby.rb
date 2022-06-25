@@ -64,17 +64,58 @@
 
 # 変数
 
-# alphabet = "abcdefg"
-# num = 10
-# age = 18
-# name = "TAKAHASHI"
-# puts alphabet , num , age , name
+    # alphabet = "abcdefg"
+    # num = 10
+    # age = 18
+    # name = "TAKAHASHI"
+    # puts alphabet , num , age , name
 
-# 計算ソフト
-x = 10
-y = 20
-z = 30
-area =(x * y + y * z + x * z) * 2
-volume = (x * y * z)
-print "表面積=" , area, "\n"
-print "体積=" , volume, "\n"
+
+# 変数を使用した表面積の計算
+    
+    # x = 10
+    # y = 20
+    # z = 30
+    # area =(x * y + y * z + x * z) * 2
+    # volume = (x * y * z)
+    # print "表面積=" , area, "\n"
+    # print "体積=" , volume, "\n"
+
+    
+# ""内に#{変数名}と書くことで文字列の中に変数を埋め込むことができる。
+    
+    # print "表面積=#{area}\n"
+    # print "表面積=#{50/5}\n"
+
+
+#コメントアウト
+=begin
+    beginとendを
+    記述すると
+    その範囲内がすべてコメントアウトされる
+=end
+
+
+# 条件分岐
+
+    # p (2 == 2)
+    # p (2 == 4)
+    # p (5 != 6)
+    # p (1 < 5)
+    # p (18 >= 18)
+
+    # a = 10
+    # if a >= 10 then
+        # print"greater\n"
+    # end
+    # if a <= 9 then
+        # print "smaller\n"
+    # end
+
+    # if a >=10 
+        # print "greater\n"
+    # else
+        # print "smaller\n"
+    # end
+
+
