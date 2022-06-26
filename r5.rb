@@ -19,14 +19,19 @@
     # end
 
 #case文
-    tags = ["A" , "IMG" , "PRE"]
-    tags.each do |tagname|
-        case tagname
-        when "P" , "A" , "I" , "B" , "BLOCKQUOTE0"
-            puts "#{tagname} has a child."
-        when "IMG" , "BR"
-            puts "#{tagname} has no child." 
-        else
-            puts "#{tagname} cannnot be used"
-        end
-    end
+    # tags = ["A" , "IMG" , "PRE"]
+    # tags.each do |tagname|
+        # case tagname
+        # when "P" , "A" , "I" , "B" , "BLOCKQUOTE0"
+            # puts "#{tagname} has a child."
+        # when "IMG" , "BR"
+            # puts "#{tagname} has no child." 
+        # else
+            # puts "#{tagname} cannnot be used"
+        # end
+    # end
+
+#if修飾子とunless修飾子...ifとunlessは式の後ろに書くこともできる
+    # a , b = 10 , 5
+    # puts "aはbよりも大きい" if a >b
+
