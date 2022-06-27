@@ -168,19 +168,6 @@
 
 #モジュール...クラスはデータと処理を表現する機能だが、モジュールは処理の部分だけをまとめる機能(インスタンスを持てない、継承できない)
 
-    #module MyModule
-    #    #共通して提供したいメソッド
-    #end
-    #
-    #class MyClass1
-    #    include MyModule
-    #    #MyClass1に固有なメソッド
-    #end
-#
-    #class MyClass2
-    #    include MyModule
-    #    #MyClass2にこにゅうなメソッド
-    #end
 
     module HelloModule
         VERSION = "1.0"
@@ -188,12 +175,12 @@
         def hello(name)
             puts "Hello, #{name}."
         end
-        module_function :hello
+        module_function :hello      #moduleで作ったメソッドを呼び出せるようにするには module_functrion :メソッド名
     end
 
-    p HelloModule::VERSION
+    p HelloModule::VERSION          #定数は::定数名で参照できる
     HelloModule.hello("Alice")
-    
+
     include HelloModule
     p VERSION
     hello("Alice")
