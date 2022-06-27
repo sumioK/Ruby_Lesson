@@ -15,36 +15,110 @@
     # p str.is_a?(Object) #strはObjectクラスに属するか
 
 #クラスを作る
-    class Receipt
-        def initialize(name)
-            @name = name
-            @lines = []
-        end
- 
-        def lines=(lines)
-            @lines = lines
-        end
-  
-        def calc
-            total = 0
-            @lines.each do |line|
-                total += line[:price] * line[:num]
-            end
-            total
-        end
-  
-        def output
-            puts "レシート #{@name}"
-            @lines.each do |line|
-                puts "#{line[:name]} #{line[:price]}円 x #{line[:num]}"
-            end
-            puts "合計金額: #{calc}円"
-        end
+    # class Receipt
+        # def initialize(name)
+            # @name = name
+            # @lines = []
+        # end
+#  
+        # def lines=(lines)
+            # @lines = lines
+        # end
+#   
+        # def calc
+            # total = 0
+            # @lines.each do |line|
+                # total += line[:price] * line[:num]
+            # end
+            # total
+        # end
+#   
+        # def output
+            # puts "レシート #{@name}"
+            # @lines.each do |line|
+                # puts "#{line[:name]} #{line[:price]}円 x #{line[:num]}"
+            # end
+            # puts "合計金額: #{calc}円"
+        # end
+    # end
+
+    #  r = Receipt.new("ストアA")
+    #  r.lines = [{name: "卵" , price: 200 , num: 1} , {name: "大根" , price: 100 , num: 2}] 
+    #  r.output
+
+
+
+#メソッドの呼び出しを制限する
+
+    # class AccessTest
+        # def pub
+            # puts "pub is a public method"
+        # end
+# 
+        # public :pub     #pubをpublicに設定
+# 
+        # def priv
+            # puts "priv is a private method"
+        # end
+        # private :priv   #privをprivateに設定
+    # end
+# 
+    # access = AccessTest.new
+    # access.pub
+    # access.priv
+# 
+    # class AccessTest
+        # public          #引数を指定しないとこれ以下に定義したメソッドはpublicになる
+# 
+        # def pub
+            # puts "pub is a public method"
+        # end
+# 
+        # private         #これ以降に定義したメソッドはprivateになる
+# 
+        # def priv
+            # puts "priv is a private method"
+        # end
+    # end
+
+
+#メソッドを外から参照できるが変更できないようにする
+
+    # class Point
+        # attr_accessor :x, :y
+        # protected :x=, :y=
+# 
+        # def initialize(x=0.0 , y=0.0)
+            # @x, @y = x, y
+        # end
+# 
+        # def swap(other)
+            # tmp_x, tmp_y = @x, @y
+            # @x, @y = other.x , other.y 
+            # other.x , other.y = tmp_x , tmp_y
+# 
+            # return self
+        # end
+    # end
+# 
+    # p0 = Point.new
+    # p1 = Point.new(1.0, 2.0)
+    # p [p0.x, p0.y]
+    # p [p1.x, p1.y]
+# 
+    # p0.swap(p1)
+    # p [ p0.x , p0.y]
+    # p [p1.x, p1.y]
+
+
+#継承する...既存のクラスには変更を加えず新しいクラスを作る
+
+class RingArray < Array #superclassを指定
+    def[] (i)           #演算子[]の再定義
+        idx = i % length  #新しいインデックスを求める
+        super(idx)      #スーパークラスの同名メソッドを呼ぶ
     end
+end
 
-     r = Receipt.new("ストアA")
-     r.lines = [{name: "卵" , price: 200 , num: 1} , {name: "大根" , price: 100 , num: 2}] 
-     r.output
-
-
-    
+wday = RingArray["日" ,"月" , "火" , "水" , "木", "金" , "土"]
+p wday[6]
