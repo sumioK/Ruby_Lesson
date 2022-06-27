@@ -47,29 +47,4 @@
      r.output
 
 
-     
-
-
-    # class HelloWorld
-        # def initialize(myname)
-        #   @name = myname
-        # end
-    #   
-        # def hello
-        #   puts "Hello, world. I am #{@name}"
-        # end
-# 
-        # def hi
-            # puts "Hi my name is #{@name}"
-        # end
-    # end
-    #   
-    #   
-    #   ruby = HelloWorld.new("Ruby")
-    #   bob = HelloWorld.new("Bob")
-    #   alice = HelloWorld.new("Alice")
-    #   
-    #   ruby.hello
-    #   bob.hello
-    #   alice.hello
-    #   ruby.hi
+    
