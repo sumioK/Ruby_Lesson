@@ -113,12 +113,87 @@
 
 #継承する...既存のクラスには変更を加えず新しいクラスを作る
 
-class RingArray < Array #superclassを指定
-    def[] (i)           #演算子[]の再定義
-        idx = i % length  #新しいインデックスを求める
-        super(idx)      #スーパークラスの同名メソッドを呼ぶ
-    end
-end
+    # class RingArray < Array #superclassを指定
+        # def[] (i)           #演算子[]の再定義
+            # idx = i % length  #新しいインデックスを求める
+            # super(idx)      #スーパークラスの同名メソッドを呼ぶ
+        # end
+    # end
+    # 
+    # wday = RingArray["日" ,"月" , "火" , "水" , "木", "金" , "土"]
+    # p wday[6]
 
-wday = RingArray["日" ,"月" , "火" , "水" , "木", "金" , "土"]
-p wday[6]
+
+#alias...定義されたメソッドの名前を変更する
+
+    #class C1
+    #    def hello
+    #        "hello"
+    #    end
+    #end
+#
+    #class C2 < C1
+    #    alias old_hello hello       #helloメソッドをold_helloメソッドに名前変更
+    #                            
+    #    def hello                   #改めてhelloメソッドを定義     
+    #        "#{old_hello}, again"
+    #    end
+    #end
+#
+    #obj = C2.new
+    #p obj.old_hello
+    #p obj.hello
+
+#undef...定義されたメソッドをなかったことにする
+
+    # undef メソッド名
+    # undef : メソッド名
+
+
+#特異クラス...特定のクラスにのみクラスメソッドを追加する
+
+    # str1 = "Ruby"
+    # str2 = "Ruby"
+# 
+    # class <<str1
+        # def hello
+            # "Hello, #{self}"
+        # end
+    # end
+# 
+    # p str1.hello
+    # p str2.hello      #クラスメソッドが追加されていないためエラーとなる
+
+
+
+#モジュール...クラスはデータと処理を表現する機能だが、モジュールは処理の部分だけをまとめる機能(インスタンスを持てない、継承できない)
+
+    #module MyModule
+    #    #共通して提供したいメソッド
+    #end
+    #
+    #class MyClass1
+    #    include MyModule
+    #    #MyClass1に固有なメソッド
+    #end
+#
+    #class MyClass2
+    #    include MyModule
+    #    #MyClass2にこにゅうなメソッド
+    #end
+
+    module HelloModule
+        VERSION = "1.0"
+
+        def hello(name)
+            puts "Hello, #{name}."
+        end
+        module_function :hello
+    end
+
+    p HelloModule::VERSION
+    HelloModule.hello("Alice")
+    
+    include HelloModule
+    p VERSION
+    hello("Alice")
