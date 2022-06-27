@@ -59,7 +59,7 @@
 
 
 #別のファイルを取り込む(require 使いたいライブラリのファイル名)もしくは(require_relative ファイル名)
-    # require_relative "rubyhello" #rubyhelloからhelloメソッドを読み込んでいる
+    # require_relative "r3-1" #r3-1からhelloメソッドを読み込んでいる
     # hello()
 
     #  require "date" #dateライブラリは標準装備されているメソッド
