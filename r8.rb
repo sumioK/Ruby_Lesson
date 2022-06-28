@@ -169,18 +169,73 @@
 #モジュール...クラスはデータと処理を表現する機能だが、モジュールは処理の部分だけをまとめる機能(インスタンスを持てない、継承できない)
 
 
-    module HelloModule
-        VERSION = "1.0"
+    # module HelloModule
+        # VERSION = "1.0"
+# 
+        # def hello(name)
+            # puts "Hello, #{name}."
+        # end
+        # module_function :hello      #moduleで作ったメソッドを呼び出せるようにするには module_functrion :メソッド名
+    # end
+# 
+    # p HelloModule::VERSION          #定数は::定数名で参照できる
+    # HelloModule.hello("Alice")
+# 
+    # include HelloModule
+    # p VERSION
+    # hello("Alice")
 
-        def hello(name)
-            puts "Hello, #{name}."
-        end
-        module_function :hello      #moduleで作ったメソッドを呼び出せるようにするには module_functrion :メソッド名
-    end
 
-    p HelloModule::VERSION          #定数は::定数名で参照できる
-    HelloModule.hello("Alice")
+#Mix-in
+    #module M
+    #    def meth
+    #        "meth"
+    #    end
+    #end
+#
+    #class C
+    #    include M   #classにモジュールをincludeする
+    #end
+    #
+    #c = C.new
+    #p c.meth
 
-    include HelloModule
-    p VERSION
-    hello("Alice")
+#すでにあるクラスの動作を変更する
+    # module M
+        # def meth
+            # "M#meth"
+        # end
+    # end
+# 
+    # class C
+        # prepend M
+# 
+        # def meth
+            # "C#meth"
+        # end
+    # end
+# 
+    # c = C.new
+    # p C.ancestors
+    # p c.meth
+
+#extendメソッド...モジュールを特異クラスにincludeする
+    # module Edition
+        # def edition(n)
+            # "#{self} 第#{n}版"
+        # end
+    # end
+# 
+    # str = "たのしいRuby"
+    # str.extend(Edition)
+# 
+    # p str.edition(6)
+
+#オブジェクト指向プログラミング
+    require "uri"
+    url = URI.parse("https://www.ruby-lang.org/ja/")
+    p url.scheme
+    p url.host
+    p url.port
+    p url.path
+    p url.to_s
